@@ -5,21 +5,20 @@
 
 <html>
 <body>
-  <p> image
   <img src="https://tpc.googlesyndication.com/pimgad/3495503751716231307">
-  <p> video
   <video id="v1" controls="" width="1920" height="1080"
      src="https://gcdn.2mdn.net/videoplayback/id/f904ec5074011add/itag/316/source/doubleclick_dmm/ratebypass/yes/ip/0.0.0.0/ipbits/0/expire/3584018490/sparams/id,itag,source,ratebypass,ip,ipbits,expire/signature/34DBEF1FF82663BEEFEA49694DE201F4DEC3916E.A1C13D4235B43E26B57A627B1DD377C9862E7C1C/key/ck2/file/file.mp4">
   </video>
   <script>
+    video = document.getElementById("v1");
+    video.style.display = "none"
     let promise = new Promise(function(resolve, reject) {
-      document.getElementById("v1").oncanplay = resolve;
+      video.oncanplay = resolve;
     });
     promise.then(
-      result => console.log("done"),
+      result => video.style.display = "block",
       error => alert(error)
     );
   </script>
-  <p> That's all
 </body>
 </html>
